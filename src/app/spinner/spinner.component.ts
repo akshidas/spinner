@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 var items = [
 	{
 		color: "red",
@@ -53,7 +54,7 @@ var items = [
 @Component({
 	selector: "app-spinner",
 	standalone: true,
-	imports: [],
+	imports: [MatSlideToggleModule],
 	templateUrl: "./spinner.component.html",
 	styleUrl: "./spinner.component.css",
 })
