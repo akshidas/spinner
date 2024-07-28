@@ -85,7 +85,7 @@ export class SpinnerComponent {
 
 	openSuccess(): void {
 		const successRef = this.dialog.open(SuccessComponent, {
-			width: "500px",
+			width: "400px",
 		});
 
 		successRef.afterClosed().subscribe((result) => {
@@ -118,6 +118,7 @@ export class SpinnerComponent {
 			canvasContainer.dataset.rotate = deg.toString();
 			canvasContainer.addEventListener("transitionend", (event) => {
 				this.console.log("test");
+				this.onNoClick();
 				this.openSuccess();
 			});
 			return deg;

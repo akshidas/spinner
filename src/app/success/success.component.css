@@ -1,0 +1,13 @@
+.background {
+	background-color: #031e37;
+	width: 400px;
+	height: 450px;
+}
+
+.title-container {
+	margin-top: 3rem;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	color: #fff;
+}
