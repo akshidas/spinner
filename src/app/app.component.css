@@ -22,3 +22,12 @@
 .auth-btn {
 	margin-right: 5px;
 }
+
+.spin-btn {
+	margin-left: 5px;
+}
+.mat-dialog-container {
+	background-color: #f0f0f0; /* Your desired background color */
+	padding: 16px; /* Optional: add some padding */
+	border-radius: 8px; /* Optional: add rounded corners */
+}

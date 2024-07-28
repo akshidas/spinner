@@ -3,6 +3,16 @@ import { Component } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { Inject } from "@angular/core";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { CommonModule } from "@angular/common";
+import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatIconModule } from "@angular/material/icon";
+import { MatDialogModule } from "@angular/material/dialog";
+import { FormsModule } from "@angular/forms";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
 
 var items = [
 	{ deg: 0, text: "1000000" },
@@ -48,39 +58,52 @@ const closestMultipleOf22_5 = (angle: number) => {
 		NgStyle,
 		MatSidenavModule,
 		MatButtonModule,
+		FormsModule,
+		MatFormFieldModule,
+		MatInputModule,
+		CommonModule,
+		RouterOutlet,
+		RouterLink,
+		RouterLinkActive,
+		MatSidenavModule,
+		MatButtonModule,
+		MatToolbarModule,
+		MatIconModule,
+		MatDialogModule,
 	],
 	templateUrl: "./spinner.component.html",
 	styleUrl: "./spinner.component.css",
 })
 export class SpinnerComponent {
+	constructor(
+		public dialogRef: MatDialogRef<SpinnerComponent>,
+		@Inject(MAT_DIALOG_DATA) public data: any,
+	) {}
+
+	onNoClick(): void {
+		this.dialogRef.close();
+	}
 	items = items;
 	title = "spinner";
 	console = console;
 	showFiller = false;
-	ngAfterViewInit() {
-		function spin() {
-			const canvasContainer =
-				document.querySelector<HTMLCanvasElement>(".canvas__container");
-			if (canvasContainer) {
-				var oldDeg = Number(canvasContainer.dataset.rotate ?? 0);
-				var deg = Math.floor(Math.random() * 360) + 1080 + oldDeg;
-				const normalizedAngle = normaliseAngle(deg);
-				const closestAngle = closestMultipleOf22_5(deg);
-				const prize = items.find(({ deg }) => {
-					// console.log(deg === closestAngle, deg, closestAngle);
-					return deg === closestAngle;
-				});
-				console.log(deg, normalizedAngle, closestAngle, prize);
-				canvasContainer.style.transform = `rotate(${deg}deg)`;
-				canvasContainer.dataset.rotate = deg.toString();
-				return deg;
-			}
-			return 0;
+	spin = () => {
+		const canvasContainer =
+			document.querySelector<HTMLCanvasElement>(".canvas__container");
+		if (canvasContainer) {
+			var oldDeg = Number(canvasContainer.dataset.rotate ?? 0);
+			var deg = Math.floor(Math.random() * 360) + 1080 + oldDeg;
+			const normalizedAngle = normaliseAngle(deg);
+			const closestAngle = closestMultipleOf22_5(deg);
+			const prize = items.find(({ deg }) => {
+				// console.log(deg === closestAngle, deg, closestAngle);
+				return deg === closestAngle;
+			});
+			console.log(deg, normalizedAngle, closestAngle, prize);
+			canvasContainer.style.transform = `rotate(${deg}deg)`;
+			canvasContainer.dataset.rotate = deg.toString();
+			return deg;
 		}
-
-		const spinButton = document.querySelector(".spin__btn");
-		spinButton?.addEventListener("click", () => {
-			spin();
-		});
-	}
+		return 0;
+	};
 }

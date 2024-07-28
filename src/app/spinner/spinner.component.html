@@ -1,38 +1,32 @@
-<mat-drawer-container class="example-container" autosize>
-	<mat-drawer #drawer class="example-sidenav" mode="side">
-		<p>Auto-resizing sidenav</p>
-		@if (showFiller) {
-			<p>Lorem, ipsum dolor sit amet consectetur.</p>
-		}
-		<button (click)="showFiller = !showFiller" mat-raised-button>
-			Toggle extra text
-		</button>
-	</mat-drawer>
-</mat-drawer-container>
-<div class="spinner">
-	<div class="canvas__container">
-		<img
-			class="spin__btn btn-text"
-			src="https://game.albetros.com/assets/images/btn_luckspin.c9fdbf75.png"
-		/>
-		<img
-			class="spin__btn"
-			src="https://game.albetros.com/assets/images/spin_center1.47d8700e.png"
-		/>
+<div class="background">
+	<div class="spinner">
+		<div class="canvas__container">
+			<img
+				class="spin__btn btn-text"
+				src="https://game.albetros.com/assets/images/btn_luckspin.c9fdbf75.png"
+			/>
+			<img
+				class="spin__btn"
+				src="https://game.albetros.com/assets/images/spin_center1.47d8700e.png"
+			/>
 
-		<div *ngFor="let item of items">
-			<span
-				class="spin-item"
-				style="opacity: 1; height: 24px"
-				[style.transform]="'rotate(' + item.deg + 'deg)'"
-			>
-				<p [innerHTML]="item.text"></p>
-			</span>
+			<div *ngFor="let item of items">
+				<span
+					class="spin-item"
+					style="opacity: 1; height: 24px"
+					[style.transform]="'rotate(' + item.deg + 'deg)'"
+				>
+					<p [innerHTML]="item.text"></p>
+				</span>
+			</div>
+		</div>
+		<div class="point-img">
+			<img
+				src="https://game.albetros.com/assets/images/point_bronze.0d249168.png"
+			/>
 		</div>
 	</div>
-	<div class="point-img">
-		<img
-			src="https://game.albetros.com/assets/images/point_bronze.0d249168.png"
-		/>
+	<div class="spin_button--contaner">
+		<button mat-flat-button (click)="spin()">Lucky Spin</button>
 	</div>
 </div>
