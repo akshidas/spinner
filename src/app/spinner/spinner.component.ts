@@ -9,10 +9,12 @@ import { CommonModule } from "@angular/common";
 import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
-import { MatDialogModule } from "@angular/material/dialog";
+import { MatDialog, MatDialogModule } from "@angular/material/dialog";
 import { FormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
+import { SuccessComponent } from "../success/success.component";
+import { Watch } from "@angular/core/primitives/signals";
 
 var items = [
 	{ deg: 0, text: "1000000" },
@@ -76,13 +78,25 @@ const closestMultipleOf22_5 = (angle: number) => {
 })
 export class SpinnerComponent {
 	constructor(
+		public dialog: MatDialog,
 		public dialogRef: MatDialogRef<SpinnerComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: any,
 	) {}
 
+	openSuccess(): void {
+		const successRef = this.dialog.open(SuccessComponent, {
+			width: "500px",
+		});
+
+		successRef.afterClosed().subscribe((result) => {
+			console.log("The dialog was closed");
+			console.log(result); // The result returned after the dialog is closed
+		});
+	}
 	onNoClick(): void {
 		this.dialogRef.close();
 	}
+
 	items = items;
 	title = "spinner";
 	console = console;
@@ -99,9 +113,13 @@ export class SpinnerComponent {
 				// console.log(deg === closestAngle, deg, closestAngle);
 				return deg === closestAngle;
 			});
-			console.log(deg, normalizedAngle, closestAngle, prize);
+			// console.log(deg, normalizedAngle, closestAngle, prize);
 			canvasContainer.style.transform = `rotate(${deg}deg)`;
 			canvasContainer.dataset.rotate = deg.toString();
+			canvasContainer.addEventListener("transitionend", (event) => {
+				this.console.log("test");
+				this.openSuccess();
+			});
 			return deg;
 		}
 		return 0;

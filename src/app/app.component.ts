@@ -8,6 +8,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatDialog, MatDialogModule } from "@angular/material/dialog";
 import { FormsModule } from "@angular/forms";
 import { SpinnerComponent } from "./spinner/spinner.component";
+import { SuccessComponent } from "./success/success.component";
 
 @Component({
 	selector: "app-root",
@@ -43,4 +44,25 @@ export class AppComponent {
 			console.log(result); // The result returned after the dialog is closed
 		});
 	}
+
+	openSuccess(): void {
+		const successRef = this.dialog.open(SuccessComponent, {
+			width: "500px",
+		});
+
+		successRef.afterClosed().subscribe((result) => {
+			console.log("The dialog was closed");
+			console.log(result); // The result returned after the dialog is closed
+		});
+	}
+	// ngAfterViewInit() {
+	// 	const canvasContainer =
+	// 		document.querySelector<HTMLCanvasElement>(".canvas__container");
+	// 	console.log(canvasContainer);
+	// 	if (canvasContainer) {
+	// 		canvasContainer.addEventListener("transitionend", (event) => {
+	// 			console.log("test");
+	// 		});
+	// 	}
+	// }
 }
