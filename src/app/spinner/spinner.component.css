@@ -1,5 +1,10 @@
 .canvas__container {
 	transition: transform 7s cubic-bezier(0.25, 0.1, 0, 1);
+	background-image: url("https://game.albetros.com/assets/images/spin_bronze.4dd81880.png");
+	width: 348px;
+	height: 348px;
+	background-position: center;
+	background-size: cover;
 	/* border-radius: 50%; */
 	/* display: inline-flex; */
 	/* display: flex;
@@ -47,7 +52,6 @@ spinner_span {
 
 .spinner {
 	position: relative;
-	background-image: url("https://game.albetros.com/assets/images/spin_bronze.4dd81880.png");
 	width: 348px;
 	height: 348px;
 	background-position: center;
@@ -87,4 +91,16 @@ spinner_span {
 	font-size: 0.9375rem;
 	display: flex;
 	justify-content: space-between;
+}
+.point-img {
+	position: absolute;
+	height: 5.59375rem;
+	right: -1.9rem;
+	top: 7.7rem;
+	width: 10rem;
+	transform-origin: left center;
+	z-index: 9;
+}
+.point-img img {
+	width: 182px;
 }

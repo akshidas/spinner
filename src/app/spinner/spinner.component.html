@@ -1,118 +1,27 @@
-<div class="spinner canvas__container">
-	<img
-		class="spin__btn btn-text"
-		src="https://game.albetros.com/assets/images/btn_luckspin.c9fdbf75.png"
-	/>
-	<img
-		class="spin__btn"
-		src="https://game.albetros.com/assets/images/spin_center1.47d8700e.png"
-	/>
+<div class="spinner">
+	<div class="canvas__container">
+		<img
+			class="spin__btn btn-text"
+			src="https://game.albetros.com/assets/images/btn_luckspin.c9fdbf75.png"
+		/>
+		<img
+			class="spin__btn"
+			src="https://game.albetros.com/assets/images/spin_center1.47d8700e.png"
+		/>
 
-	<div *ngFor="let item of items">
-		<span
-			class="spin-item"
-			style="opacity: 1; height: 24px"
-			[style.transform]="'rotate(' + item.deg + 'deg)'"
-		>
-			<p [innerHTML]="item.text"></p>
-		</span>
+		<div *ngFor="let item of items">
+			<span
+				class="spin-item"
+				style="opacity: 1; height: 24px"
+				[style.transform]="'rotate(' + item.deg + 'deg)'"
+			>
+				<p [innerHTML]="item.text"></p>
+			</span>
+		</div>
 	</div>
-	<!--
-	<div
-		class="spin-item"
-		style="opacity: 1; height: 24px; transform: rotate(0deg)"
-	>
-		<span class="amount">10.000000</span>
+	<div class="point-img">
+		<img
+			src="https://game.albetros.com/assets/images/point_bronze.0d249168.png"
+		/>
 	</div>
-	<div
-		class="spin-item"
-		style="opacity: 1; height: 24px; transform: rotate(22.5deg)"
-	>
-		<span class="amount">10.000000</span>
-	</div>
-	<div
-		class="spin-item"
-		style="opacity: 1; height: 24px; transform: rotate(45deg)"
-	>
-		<span class="amount">10.000000</span>
-	</div>
-	<div
-		class="spin-item"
-		style="opacity: 1; height: 24px; transform: rotate(67.5deg)"
-	>
-		<span class="amount">10.000000</span>
-	</div>
-	<div
-		class="spin-item"
-		style="opacity: 1; height: 24px; transform: rotate(90deg)"
-	>
-		<span class="amount">10.000000</span>
-	</div>
-	<div
-		class="spin-item"
-		style="opacity: 1; height: 24px; transform: rotate(112.5deg)"
-	>
-		<span class="amount">10.000000</span>
-	</div>
-	<div
-		class="spin-item"
-		style="opacity: 1; height: 24px; transform: rotate(135deg)"
-	>
-		<span class="amount">10.000000</span>
-	</div>
-	<div
-		class="spin-item"
-		style="opacity: 1; height: 24px; transform: rotate(157.5deg)"
-	>
-		<span class="amount">10.000000</span>
-	</div>
-	<div
-		class="spin-item"
-		style="opacity: 1; height: 24px; transform: rotate(180deg)"
-	>
-		<span class="amount">10.000000</span>
-	</div>
-	<div
-		class="spin-item"
-		style="opacity: 1; height: 24px; transform: rotate(202.5deg)"
-	>
-		<span class="amount">10.000000</span>
-	</div>
-	<div
-		class="spin-item"
-		style="opacity: 1; height: 24px; transform: rotate(225deg)"
-	>
-		<span class="amount">10.000000</span>
-	</div>
-	<div
-		class="spin-item"
-		style="opacity: 1; height: 24px; transform: rotate(247.5deg)"
-	>
-		<span class="amount">10.000000</span>
-	</div>
-	<div
-		class="spin-item"
-		style="opacity: 1; height: 24px; transform: rotate(270deg)"
-	>
-		<span class="amount">10.000000</span>
-	</div>
-	<div
-		class="spin-item"
-		style="opacity: 1; height: 24px; transform: rotate(292.5deg)"
-	>
-		<span class="amount">10.000000</span>
-	</div>
-
-	<div
-		class="spin-item"
-		style="opacity: 1; height: 24px; transform: rotate(315deg)"
-	>
-		<span class="amount">10.000000</span>
-	</div>
-	<div
-		class="spin-item"
-		style="opacity: 1; height: 24px; transform: rotate(337.5deg)"
-	>
-		<span class="amount">10.000000</span>
-	</div> -->
 </div>
