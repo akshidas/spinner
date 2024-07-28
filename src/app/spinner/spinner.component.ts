@@ -1,5 +1,7 @@
 import { NgFor, NgForOf, NgStyle } from "@angular/common";
 import { Component } from "@angular/core";
+import { MatButtonModule } from "@angular/material/button";
+import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
 var items = [
@@ -39,7 +41,14 @@ const closestMultipleOf22_5 = (angle: number) => {
 @Component({
 	selector: "app-spinner",
 	standalone: true,
-	imports: [MatSlideToggleModule, NgFor, NgForOf, NgStyle],
+	imports: [
+		MatSlideToggleModule,
+		NgFor,
+		NgForOf,
+		NgStyle,
+		MatSidenavModule,
+		MatButtonModule,
+	],
 	templateUrl: "./spinner.component.html",
 	styleUrl: "./spinner.component.css",
 })
@@ -47,6 +56,7 @@ export class SpinnerComponent {
 	items = items;
 	title = "spinner";
 	console = console;
+	showFiller = false;
 	ngAfterViewInit() {
 		function spin() {
 			const canvasContainer =

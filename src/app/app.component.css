@@ -1,0 +1,24 @@
+.example-container {
+	height: 100vh;
+	background-color: transparent;
+}
+
+.background {
+	background-color: #031e37;
+}
+
+.all-container {
+	width: 100%;
+	display: flex;
+}
+
+.side-bar {
+	width: 250px;
+	background-color: #031e37;
+}
+.example-spacer {
+	flex: 1 1 auto;
+}
+.auth-btn {
+	margin-right: 5px;
+}
