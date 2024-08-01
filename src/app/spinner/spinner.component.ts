@@ -15,7 +15,13 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { SuccessComponent } from "../success/success.component";
 import { Watch } from "@angular/core/primitives/signals";
-
+import { interval, Observable } from "rxjs";
+import {
+	calcDateDiff,
+	getNextSpinTime,
+	timeComponents,
+} from "./calculate-time";
+import { map, shareReplay } from "rxjs/operators";
 var items = [
 	{ deg: 0, text: "1000000" },
 	{ deg: 22.5, text: "2000000" },
@@ -81,7 +87,9 @@ export class SpinnerComponent {
 		public dialog: MatDialog,
 		public dialogRef: MatDialogRef<SpinnerComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: any,
-	) {}
+	) {
+		this.timeLeft$ = null;
+	}
 
 	openSuccess(): void {
 		const successRef = this.dialog.open(SuccessComponent, {
@@ -131,17 +139,23 @@ export class SpinnerComponent {
 			innerSpin.addEventListener("transitionend", (event) => {
 				this.onNoClick();
 				this.openSuccess();
-				localStorage.setItem("spinnedTime", new Date().getTime().toString());
+				getNextSpinTime();
+				localStorage.setItem("nextSpin", getNextSpinTime().toString());
 			});
 			return deg;
 		}
 		return 0;
 	};
 
+	public timeLeft$: Observable<timeComponents> | null;
 	ngOnInit() {
-		const time = localStorage.getItem("spinnedTime");
+		const time = localStorage.getItem("nextSpin");
 		if (time) {
 			this.spinTime = parseInt(time);
+			this.timeLeft$ = interval(1000).pipe(
+				map((x) => calcDateDiff(new Date(parseInt(time)))),
+				shareReplay(1),
+			);
 		}
 	}
 }

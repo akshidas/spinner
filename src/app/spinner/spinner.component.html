@@ -22,11 +22,18 @@
 		</div>
 	</div>
 	<div class="spin_button--contaner">
-		<button mat-flat-button *ngIf="spinTime === null" (click)="spin()">
+		<button
+			mat-flat-button
+			*ngIf="spinTime === null || undefined"
+			(click)="spin()"
+		>
 			Lucky Spin
 		</button>
 		<button mat-flat-button *ngIf="spinTime !== null" (click)="spin()">
-			Next Spin in
+			<div class="timer" *ngIf="timeLeft$ | async as t">
+				Next Lucky Spin in {{ t.hoursToDday }}h {{ t.minutesToDday }}m
+				{{ t.secondsToDday }}s
+			</div>
 		</button>
 	</div>
 </div>
