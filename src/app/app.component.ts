@@ -40,7 +40,6 @@ export class AppComponent {
 		});
 
 		dialogRef.afterClosed().subscribe((result) => {
-			console.log("The dialog was closed");
 			console.log(result); // The result returned after the dialog is closed
 		});
 	}
