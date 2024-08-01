@@ -14,11 +14,19 @@
 	align-items: center;
 	/* width: 460px; */
 }
-
+.spin-item__container {
+	position: relative;
+	transition: transform 7s cubic-bezier(0.25, 0.1, 0, 1);
+	width: 350px;
+	height: 350px;
+	background-position: center;
+	background-size: cover;
+}
 .canvas__container {
 	position: relative;
 	transition: transform 7s cubic-bezier(0.25, 0.1, 0, 1);
-	background-image: url("https://game.albetros.com/assets/images/spin_bronze.4dd81880.png");
+	/* background-image: url("https://game.albetros.com/assets/images/spin_bronze.4dd81880.png"); */
+	/* background-image: url("/assets/logo_3d.png"); */
 	width: 346px;
 	height: 346px;
 	background-position: center;
@@ -53,6 +61,11 @@ spinner_span {
 .spinner .spin__btn {
 	position: absolute;
 	transform: translate(-50%, -50%);
+	transition: transform 7s cubic-bezier(0.25, 0.1, 0, 1);
+	background-image: url("/assets/logo.png");
+	background-position: center;
+	background-size: contain;
+	transform-origin: 0 50%;
 	left: 0;
 	top: 0;
 	right: 0;
@@ -60,14 +73,26 @@ spinner_span {
 	display: block;
 	margin: 174px;
 	z-index: 2;
-	width: 104px;
-	height: 104px;
+	width: 310px;
+	height: 310px;
+	opacity: 0.2;
+	background-color: #000;
+	border-radius: 50%;
 }
 
 .spinner .btn-text {
+	position: absolute;
 	z-index: 3;
+	left: 130px;
+	top: 130px;
+	right: 0;
+	bottom: 0;
 	width: 88px;
-	height: 56px;
+	height: 88px;
+	opacity: 1;
+	/* transform: translate(-50%, -50%); */
+	transform-origin: 50%;
+	transition: transform 7s cubic-bezier(0.25, 0.1, 0, 1);
 }
 
 .spin-item {

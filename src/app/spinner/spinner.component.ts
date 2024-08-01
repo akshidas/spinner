@@ -102,10 +102,14 @@ export class SpinnerComponent {
 	console = console;
 	showFiller = false;
 	spin = () => {
-		const canvasContainer =
-			document.querySelector<HTMLCanvasElement>(".canvas__container");
-		if (canvasContainer) {
-			var oldDeg = Number(canvasContainer.dataset.rotate ?? 0);
+		// const canvasContainer =
+		// 	document.querySelector<HTMLCanvasElement>(".canvas__container");
+		const innerSpin = document.querySelector<HTMLCanvasElement>(".btn-text");
+		const spinner = document.querySelector<HTMLCanvasElement>(
+			".spin-item__container",
+		);
+		if (innerSpin) {
+			var oldDeg = Number(innerSpin.dataset.rotate ?? 0);
 			var deg = Math.floor(Math.random() * 360) + 1080 + oldDeg;
 			const normalizedAngle = normaliseAngle(deg);
 			const closestAngle = closestMultipleOf22_5(deg);
@@ -114,10 +118,16 @@ export class SpinnerComponent {
 				return deg === closestAngle;
 			});
 			// console.log(deg, normalizedAngle, closestAngle, prize);
-			canvasContainer.style.transform = `rotate(${deg}deg)`;
-			canvasContainer.dataset.rotate = deg.toString();
-			canvasContainer.addEventListener("transitionend", (event) => {
-				this.console.log("test");
+			innerSpin.style.transform = `rotateY(${deg}deg)`;
+			innerSpin.dataset.rotate = deg.toString();
+
+			if (spinner) {
+				var oldDeg = Number(spinner.dataset.rotate ?? 0);
+				var deg = Math.floor(Math.random() * 360) + 1080 + oldDeg;
+				spinner.style.transform = `rotate(${deg}deg)`;
+				spinner.dataset.rotate = deg.toString();
+			}
+			innerSpin.addEventListener("transitionend", (event) => {
 				this.onNoClick();
 				this.openSuccess();
 			});

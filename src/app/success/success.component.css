@@ -4,10 +4,19 @@
 	height: 450px;
 }
 
+.p-3 {
+	padding: 3rem 3rem 0 3rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .title-container {
-	margin-top: 3rem;
-	width: 100%;
 	display: flex;
 	justify-content: center;
 	color: #fff;
+}
+
+h5 {
+	margin-bottom: 0;
 }
