@@ -100,6 +100,7 @@ export class SpinnerComponent {
 	items = items;
 	title = "spinner";
 	console = console;
+	spinTime: number | null = null;
 	showFiller = false;
 	spin = () => {
 		// const canvasContainer =
@@ -130,9 +131,17 @@ export class SpinnerComponent {
 			innerSpin.addEventListener("transitionend", (event) => {
 				this.onNoClick();
 				this.openSuccess();
+				localStorage.setItem("spinnedTime", new Date().getTime().toString());
 			});
 			return deg;
 		}
 		return 0;
 	};
+
+	ngOnInit() {
+		const time = localStorage.getItem("spinnedTime");
+		if (time) {
+			this.spinTime = parseInt(time);
+		}
+	}
 }

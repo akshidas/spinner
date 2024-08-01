@@ -22,6 +22,11 @@
 		</div>
 	</div>
 	<div class="spin_button--contaner">
-		<button mat-flat-button (click)="spin()">Lucky Spin</button>
+		<button mat-flat-button *ngIf="spinTime === null" (click)="spin()">
+			Lucky Spin
+		</button>
+		<button mat-flat-button *ngIf="spinTime !== null" (click)="spin()">
+			Next Spin in
+		</button>
 	</div>
 </div>
