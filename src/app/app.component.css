@@ -1,33 +1,53 @@
 .example-container {
-	height: 100vh;
-	background-color: transparent;
+  height: 100vh;
+  background-color: transparent;
 }
 
 .background {
-	background-color: #031e37;
+  background-color: #031e37;
 }
 
 .all-container {
-	width: 100%;
-	display: flex;
+  width: 100%;
+  display: flex;
+  height: 50%;
 }
 
 .side-bar {
-	width: 250px;
-	background-color: #031e37;
+  background-color: #031e37;
 }
 .example-spacer {
-	flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 .auth-btn {
-	margin-right: 5px;
+  margin-right: 5px;
 }
 
 .spin-btn {
-	margin-left: 5px;
+  margin-left: 5px;
+  text-align: right;
 }
 .mat-dialog-container {
-	background-color: #f0f0f0; /* Your desired background color */
-	padding: 16px; /* Optional: add some padding */
-	border-radius: 8px; /* Optional: add rounded corners */
+  background-color: #f0f0f0; /* Your desired background color */
+  padding: 16px; /* Optional: add some padding */
+  border-radius: 8px; /* Optional: add rounded corners */
+}
+.header-section {
+  justify-content: center;
+  align-items: center;
+}
+.d-flex {
+  display: flex;
+}
+.w-100 {
+  width: 100%;
+}
+.w-50 {
+  width: 50%;
+}
+.text-right {
+  text-align: right;
+}
+.bg-black {
+  background-color: #000;
 }

@@ -23,22 +23,22 @@ import {
 } from "./calculate-time";
 import { map, shareReplay } from "rxjs/operators";
 var items = [
-	{ deg: 0, text: "1000000" },
-	{ deg: 22.5, text: "2000000" },
-	{ deg: 45, text: "3000000" },
-	{ deg: 67.5, text: "4000000" },
-	{ deg: 90, text: "5000000" },
-	{ deg: 112.5, text: "6000000" },
-	{ deg: 135, text: "7000000" },
-	{ deg: 157.5, text: "8000000" },
-	{ deg: 180, text: "9000000" },
-	{ deg: 202.5, text: "10000000" },
-	{ deg: 225, text: "11000000" },
-	{ deg: 247.5, text: "12000000" },
-	{ deg: 270, text: "12000000" },
-	{ deg: 292.5, text: "12000000" },
-	{ deg: 315, text: "12000000" },
-	{ deg: 337.5, text: "12000000" },
+	{ deg: 0, text: "1000" },
+	{ deg: 22.5, text: "2000" },
+	{ deg: 45, text: "3000" },
+	{ deg: 67.5, text: "4000" },
+	{ deg: 90, text: "5000" },
+	{ deg: 112.5, text: "6000" },
+	{ deg: 135, text: "7000" },
+	{ deg: 157.5, text: "8000" },
+	{ deg: 180, text: "9000" },
+	{ deg: 202.5, text: "10000" },
+	{ deg: 225, text: "11000" },
+	{ deg: 247.5, text: "12000" },
+	{ deg: 270, text: "12000" },
+	{ deg: 292.5, text: "12000" },
+	{ deg: 315, text: "12000" },
+	{ deg: 337.5, text: "12000" },
 ];
 const normaliseAngle = (angle: number): number => angle % 360;
 const closestMultipleOf22_5 = (angle: number) => {
