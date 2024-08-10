@@ -14,7 +14,6 @@ import { FormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { SuccessComponent } from "../success/success.component";
-import { Watch } from "@angular/core/primitives/signals";
 import { interval, Observable } from "rxjs";
 import {
 	calcDateDiff,
@@ -80,7 +79,7 @@ const closestMultipleOf22_5 = (angle: number) => {
 		MatDialogModule,
 	],
 	templateUrl: "./spinner.component.html",
-	styleUrl: "./spinner.component.css",
+	styleUrls: ["./spinner.component.css"],
 })
 export class SpinnerComponent {
 	constructor(

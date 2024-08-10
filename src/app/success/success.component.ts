@@ -40,7 +40,7 @@ import { MatInputModule } from "@angular/material/input";
 		MatDialogModule,
 	],
 	templateUrl: "./success.component.html",
-	styleUrl: "./success.component.css",
+	styleUrls: ["./success.component.css"],
 })
 export class SuccessComponent {
 	constructor(

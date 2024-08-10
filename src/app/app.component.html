@@ -1,30 +1,31 @@
 <mat-toolbar class="background">
-  <div class="d-flex w-100 header-section">
-    <div class="w-50">
-      <span>Logo Here</span>
-    </div>
-    <div class="w-50 text-right">
-      <button class="spin-btn w-100 bg-black" mat-button (click)="openDialog()">
-        Spin
-      </button>
-    </div>
-  </div>
+	<div class="d-flex w-100 header-section">
+		<div class="w-50">
+			<span>Logo Here</span>
+		</div>
+		<div class="w-50 text-right">
+			<button class="spin-btn w-100 bg-black" mat-button (click)="openDialog()">
+				Spin
+			</button>
+		</div>
+	</div>
 </mat-toolbar>
 <div class="all-container">
-  <div class="side-bar">
-    <mat-drawer-container class="example-container" autosize>
-      <mat-drawer #drawer class="example-sidenav" mode="side">
-        <p>Auto-resizing sidenav</p>
-        @if (showFiller) {
+	<div class="side-bar">
+		<mat-drawer-container class="example-container" autosize>
+			<mat-drawer #drawer class="example-sidenav" mode="side">
+				<p>Auto-resizing sidenav</p>
+				<p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+				<!-- @if (showFiller) {
         <p>Lorem, ipsum dolor sit amet consectetur.</p>
-        }
-        <button (click)="showFiller = !showFiller" mat-raised-button>
-          Toggle extra text
-        </button>
-      </mat-drawer>
-    </mat-drawer-container>
-  </div>
-  <div>
-    <router-outlet />
-  </div>
+        } -->
+				<button (click)="showFiller = !showFiller" mat-raised-button>
+					Toggle extra text
+				</button>
+			</mat-drawer>
+		</mat-drawer-container>
+	</div>
+	<div>
+		<router-outlet />
+	</div>
 </div>
